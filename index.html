@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+    <title>Adega do Vale</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/logo.png">
+        </div>
+        <div class="botoes-header">
+            <input type="search" class="search">
+            <img src="./img/lupa.png" style="width: 30px; position: relative; right: 35px;">
+            <button class="carrinho-b">
+                
+                <a href="./compra.html"><img src="./img/carrinho.png" class="carrinho"></a>
+            </button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="menu">
+            <div class="tipo variavel">
+                Tipo<button class="b-menu" onclick="alternarTipo()">
+                    <img src="./img/seta.png" class="seta" id="setat"></button></div>
+            <div class="tipo-v quadro" id="tipov">
+                <div class="cerveja check">
+                    <input type="checkbox" id="cerveja">
+                <label for="cerveja">Cervejas</label></div>
+                <div class="vinho check">
+                    <input type="checkbox" id="vinho">
+                <label for="vinho">Vinhos</label></div>
+                <div class="destilado check">
+                    <input type="checkbox" id="destilado">
+                <label for="destilado">Destilados</label></div>
+                <div class="refrigerante check">
+                    <input type="checkbox" id="refrigerante">
+                <label for="refrigerante">Refrigerantes</label></div>
+            </div>
+            <div class="preco-menu variavel">
+                Preço<button class="b-menu" onclick="alternarPreco()">
+                    <img src="./img/seta.png" class="seta" id="setap"></button></div>
+            <div class="preco-v quadro" id="precov">
+                <div class="ate-50 check">
+                    <input type="checkbox" id="50">
+                <label for="50">Até R$50</label></div>
+                <div class="50-100 check">
+                    <input type="checkbox" id="100">
+                <label for="100">R$50 a R$100</label></div>
+                <div class="100-150 check">
+                    <input type="checkbox" id="150">
+                <label for="150">R$100 a R$150</label></div>
+                <div class="150+ check">
+                    <input type="checkbox" id="150+">
+                <label for="150+">Mais de R$150</label></div>
+            </div>
+            <div class="volume variavel">
+                Volume<button class="b-menu" onclick="alternarVolume()">
+                    <img src="./img/seta.png" class="seta" id="setav"></button></div>
+            <div class="volume-v quadro" id="volumev">
+                <div class="cerveja check">
+                    <input type="checkbox" id="cerveja">
+                <label for="cerveja">Cervejas</label></div>
+                <div class="vinho check">
+                    <input type="checkbox" id="vinho">
+                <label for="vinho">Vinhos</label></div>
+                <div class="destilado check">
+                    <input type="checkbox" id="destilado">
+                <label for="destilado">Destilados</label></div>
+                <div class="refrigerante check">
+                    <input type="checkbox" id="refrigerante">
+                <label for="refrigerante">Refrigerantes</label></div>
+            </div>
+        </div>
+        <div class="content" id="content">  
+                </div>
+        </div>
+    </div>
+
+    <script>
+        function alternarTipo() {
+            let alternar = document.getElementById('tipov');
+            let seta = document.getElementById('setat');
+            let rotacao = parseInt(seta.style.transform.replace('rotate(', '').replace('deg)', '')) || 0;
+            rotacao += 180;
+
+            seta.style.transform = 'rotate(' + rotacao + 'deg)';
+            
+            if (tipov.style.display === 'flex') {
+                tipov.style.display = 'none';
+            } else {
+                tipov.style.display = 'flex';
+            }
+        }
+        function alternarPreco() {
+            let alternar = document.getElementById('precov');
+            let seta = document.getElementById('setap');
+            let rotacao = parseInt(seta.style.transform.replace('rotate(', '').replace('deg)', '')) || 0;
+            rotacao += 180;
+
+            seta.style.transform = 'rotate(' + rotacao + 'deg)';
+            
+            if (precov.style.display === 'flex') {
+                precov.style.display = 'none';
+            } else {
+                precov.style.display = 'flex';
+            }
+        }
+        function alternarVolume() {
+            let alternar = document.getElementById('volumev');
+            let seta = document.getElementById('setav');
+            let rotacao = parseInt(seta.style.transform.replace('rotate(', '').replace('deg)', '')) || 0;
+            rotacao += 180;
+
+            seta.style.transform = 'rotate(' + rotacao + 'deg)';
+            
+            if (volumev.style.display === 'flex') {
+                volumev.style.display = 'none';
+            } else {
+                volumev.style.display = 'flex';
+            }
+        }
+
+        let content = document.getElementById('content');
+        const URL = 'http://localhost/adega_do_vale/api/produtos';
+        fetch( URL, {method: 'GET'})
+            .then(resp => resp.json())
+            .then(data => mostrarResposta(data))
+            .catch(erro => alert(erro));
+        
+        function mostrarResposta(data) {
+            console.log(data);
+            if (data.status != "sucess"){
+            }else{
+                criarVitrine(data.information);
+        } 
+
+    
+
+        function criarVitrine(conteudo) {
+            conteudo.forEach(item => {
+                let produto = document.createElement('div');
+                produto.className = 'produto';
+                
+                let img = document.createElement('img');
+                img.className = 'img';
+                img.src = item.imagem;
+
+                let produto1 = document.createElement('div');
+                produto1.className = 'produto1';
+
+                let specs = document.createElement('div');
+                specs.className = 'specs';
+
+                let nome = document.createElement('div');
+                nome.className = 'nome';
+                nome.textContent = item.nome;
+
+                let descricao = document.createElement('div');
+                descricao.className = 'descricao';
+                descricao.textContent = item.tipo;
+
+                let preco = document.createElement('div');
+                preco.className = 'preco';
+                preco.textContent = 'R$ ' + item.preco.replace(/\./g, ',');
+
+                let comprar = document.createElement('button');
+                comprar.className = 'comprar';
+                comprar.textContent = 'Comprar';
+
+                content.appendChild(produto);
+                produto.appendChild(img);
+                produto.appendChild(produto1);
+                produto1.appendChild(specs);
+                produto1.appendChild(comprar);
+                specs.appendChild(nome);
+                specs.appendChild(descricao);
+                specs.appendChild(preco);
+            });
+        }
+    }
+    
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+    <title>Adega do Vale</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Bem Vindo!</h1>
+            <form>
+                <div class="inputs">
+                    <input type="radio" name="tipo" id="cliente" value="cliente"><label class="label" >Cliente</label>
+                    <input type="radio" name="tipo" id="funcionario" value="funcionario"><label class="label" >Funcionário</label>
+                    <input id="nome" type="text" placeholder="Nome" required>
+                    <input id="cpf" type="number" placeholder="CPF" required>
+                    <input id="email" type="email" placeholder="Email" required>
+                    <input id="senha" type="password" placeholder="Senha" required>
+                    <input id="confirmasenha" type="password" placeholder="Confirmar senha" required>
+                </div>f 
+                <button type="button" onclick="cadastrar(event, this)" style="cursor: pointer;">Cadastrar</button>
+            </form>
+            <div class="link">
+                <p>Já tem uma conta?</p>
+                <a href="login.html">Clique Aqui</a>  
+            </div>
+            
+        </div>
+    </div>
+    <script type="text/javascript">
+    function cadastrar(event, form){
+        event.preventDefault();
+
+        const tipo = document.querySelector('input[name="tipo"]:checked').value;
+        const nome = document.getElementById('nome').value;
+        const cpf = document.getElementById('cpf').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+        const confirmasenha = document.getElementById('confirmasenha').value;
+        const dados = { 
+            nome: nome,  
+            cpf: cpf,
+            email: email, 
+            senha: senha
+        };
+        const options = {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',            
+            },
+            body: JSON.stringify(dados),
+        };
+        
+        if(senha == confirmasenha){
+            let URL;
+            if (tipo == 'cliente'){
+                URL = 'http://localhost/adega_do_vale/api/cliente';
+                fetch(URL , options)
+                    .then(resp => resp.json())                                        
+                    .then(data => mostrarResposta(data))
+                    .catch(erro => console.log(erro));
+            }else if (tipo == 'funcionario'){
+                URL = 'http://localhost/adega_do_vale/api/funcionario';
+                fetch(URL , options)
+                    .then(resp => resp.json())                                        
+                    .then(data => mostrarResposta(data))
+                    .catch(erro => console.log(erro));
+            }
+                                          
+        }else{
+            alert("Senhas diferentes");
+        }
+            
+    }
+    function mostrarResposta(data){
+        console.log(data) ; 
+        if (data.status == "sucess"){
+            alert("Usuário cadastrado com sucesso");
+            window.location.href = 'login.html';
+        } else {
+            alert("Erro ao cadastrar");
+        }                               
+    }
+    
+    </script>
+</body>
+</html>

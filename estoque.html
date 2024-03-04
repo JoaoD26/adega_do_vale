@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estoque.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Adega do Vale</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="./img/logo.png"></a>
+        </div>
+        </div>
+    </header>
+    <div class="container">
+        <section>
+            <div class="header">
+                <div class="div divheader"></div>
+                <div class="searchdiv divheader">
+                    <input type="search" class="search">
+                    <img src="./img/lupa.png" style="width: 30px; position: relative; right: 35px;">
+                </div>
+                <div class="btn-header divheader">
+                    <button class="btn" id="abrir">Alterar</button>
+                    <button class="btn" id="abrir1" style="margin-inline: 10px;">Adicionar</button>
+                    <button class="btn" id="abrir2">Excluir</button>
+                </div>
+            </div>
+            <div class="label">
+                <div class="grupo g-label">ID</div>
+                <div class="grupo g-label">Nome</div>
+                <div class="grupo g-label">Tipo</div>
+                <div class="grupo g-label">Preço</div>
+                <div class="grupo g-label">Imagem</div>
+                <div class="grupo g-label">Quantidade</div>
+            </div>
+            <div class="content" id="content">
+                
+            </div>
+        </section>
+        <div class="inclusao-bg add" id="adicionar">
+            <div class="inclusao add-1">
+                <button class="sair" id="sair"><img src="./img/x.png" class="x"></button>
+                <form class="inputs" name="Adicionar">
+                    <input type="text" class="nproduto" id="nome" placeholder="Nome" required>
+                    <input type="text" class="nproduto" id="tipo" placeholder="Tipo" required>
+                    <input type="text" class="nproduto" id="preco" placeholder="Preço" required>
+                    <input type="text" class="nproduto" id="imagem" placeholder="Imagem" required>
+                    <input type="number" class="nproduto" id="quantidade" placeholder="Quantidade" required>
+                    <button class="btn adicionar" id="add" onclick="adicionar(event, this)">Adicionar</button>
+                </form>
+                
+            </div>
+        </div>
+        <div class="inclusao-bg alt" id="alterar">
+            <div class="inclusao alt-1">
+                <button class="sair" id="sair1"><img src="./img/x.png" class="x"></button>
+                <form class="inputs" name="Alterar">
+                    <input type="text" class="nproduto" id="id-alt" placeholder="ID" required>
+                    <input type="text" class="nproduto" id="nome-alt" placeholder="Nome" required>
+                    <input type="text" class="nproduto" id="tipo-alt" placeholder="Tipo" required>
+                    <input type="text" class="nproduto" id="preco-alt" placeholder="Preço" required>
+                    <input type="text" class="nproduto" id="imagem-alt" placeholder="Imagem" required>
+                    <input type="number" class="nproduto" id="quantidade-alt" placeholder="Quantidade" required>
+                    <button class="btn alterar" id="alt" onclick="alterar(event, this)">Alterar</button>
+                </form>
+                
+            </div>
+        </div>
+        <div class="inclusao-bg exc" id="excluir">
+            <div class="inclusao exc-1">
+                <button class="sair" id="sair2"><img src="./img/x.png" class="x"></button>
+                <form class="inputs excl" name="Excluir">
+                    <label style="font-family: 'Montserrat', sans-serif;">Digite o ID do produto a ser excluído: </label>
+                    <input type="text" class="nproduto" id="id-exc" placeholder="ID" required style="margin-top: 10px; margin-bottom: 20px;">
+                    <button class="btn excluir" id="exc" onclick="excluir(event, this)">Excluir</button>
+                </form>
+                
+            </div>
+        </div>
+        </div>
+        
+        <script src="./estoque.js"></script>
+</body>
+</html>

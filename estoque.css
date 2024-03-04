@@ -1,0 +1,235 @@
+html, body{
+    height: 100%;
+    margin: 0 auto;
+}
+button:hover{
+    cursor: pointer;
+}
+html{
+    overflow: unset;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+}
+header{
+    background-color: #2c0000;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    z-index: 1;
+    box-shadow: 0px 2px 3px 0px #342b2b;
+    border-radius: 0px 0px 15px 15px;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    width: 185px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+section{
+    margin-top: 15px;
+    width: 1620px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    padding-block: 20px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+}
+.header{
+    background-color: #2c0000;
+    width: 1620px;
+    height: 80px;
+    display: flex;
+    border-radius: 10px 10px 3px 3px;
+    box-shadow: 0px 2px 3px 0px #a7a7a7;
+    z-index: 2;
+}
+.label{
+    background-color: #eeeeee;
+    width: 1620px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0px 2px 2px 0px #c8c8c8;
+    z-index: 1;
+    border-radius: 0px 0px 5px 5px;
+}
+.content{
+    width: 100%;
+    height: 80%;
+    overflow-y: overlay;
+    overflow-x: hidden;
+}
+img{
+    width: 185px;
+}
+.divheader{
+    width: 540px;
+    height: 80px;
+}
+.searchdiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search{
+    height: 30px;
+    width: 400px;
+    border-radius: 14px 14px 14px 14px;
+    border: 1px solid #867a7a;
+    padding-left: 10px;
+    margin-left: 25px;
+}
+.btn-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    background-color: #4e100b;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 4px 0px 0px #2c1b1b;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.btn:active {
+    margin-top: 10px;
+    box-shadow: inset 0px -1px 1px 0px #160000;
+}
+.btn:hover{
+    background-color: #350b07;
+    color: #ecc9b5;
+}
+.produto{
+    width: 1620px;
+    height: 70px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0px 1px 2px 0px #c8c8c8;
+    border-radius: 0px 0px 5px 5px;
+}
+.grupo{
+    width: 307px;
+    height: 60px;
+    border: 1px solid #c8c8c8;
+    border-block: none;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tipo, .nome{
+    font-size: smaller;
+}
+.imagem{
+    font-size: x-small;
+    width: 306px;
+    overflow: hidden;
+    word-break: break-word;
+}
+.g-label:last-child, .quantidade{
+    border-right: none;
+}
+.inclusao-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000008c;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.inclusao {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px 0px #4d4d4d;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 400px;
+    height: 400px;
+}
+.exc-1{
+    height: 200px;
+}
+.excluir{
+    margin-top: 0px !important;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+.excl{
+    justify-content: flex-start;
+}
+.nproduto{
+    width: 300px;
+    height: 30px;
+    border: 1px solid #a7a7a7;
+    border-radius: 7px 7px 7px 7px;
+    padding-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn{
+    background-color: #4b100a;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 4px 0px 0px #290905;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.btn:hover{
+    background-color: #460c06;
+    color: #f3f1dc;
+}
+.sair{
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    width: 20px;
+    margin-right: 30px;
+}
+.x{
+    height: 17px;
+    width: 17px;
+    right: 6px;
+    position: relative;
+}
